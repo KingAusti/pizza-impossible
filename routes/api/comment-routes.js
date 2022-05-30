@@ -1,5 +1,11 @@
 const router = require('express').Router();
-const { addComment, removeComment } = require('../../controllers/comment-controller');
+const { addComment, removeComment, addReply, removeReply } = require('../../controllers/comment-controller');
+
+//add new reply aka PUT
+router.route('/:pizzaId/:commentId').put(addReply.delete(removeComment))
+
+//remove new replay aka DESTROY
+router.route('/:pizzaId/:commentId/:replyId').delete(removeReply);
 
 // /api/comments/<pizzaId>
 router.route('/:pizzaId').post(addComment);
